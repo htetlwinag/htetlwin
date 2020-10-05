@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.base.response.constant.GlobalConstant;
@@ -26,5 +28,9 @@ public class StudentController {
 	private BaseResponse BaseResponse(int success, List<Student> students, String successMes) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@PostMapping (value= "/student")
+	public Student addStudent(@RequestBody Student student) {
+		return studentService.addStudent(student);
 	}
 }
