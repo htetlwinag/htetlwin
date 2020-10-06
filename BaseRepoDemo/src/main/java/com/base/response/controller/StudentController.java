@@ -24,13 +24,24 @@ public class StudentController {
 		List<Student> students=studentService.getStudent();
 		return BaseResponse(GlobalConstant.SUCCESS , students ,GlobalConstant.Message.SUCCESS_MES); 
 	}
-
 	private BaseResponse BaseResponse(int success, List<Student> students, String successMes) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@PostMapping (value= "/student")
-	public Student addStudent(@RequestBody Student student) {
-		return studentService.addStudent(student);
+	@PostMapping (value = "/student")
+	public BaseResponse addStudent(@RequestBody Student student)
+	{
+		try {
+       student = studentService.save(student);
+		}catch (Exception e) {
+			System.out.println("Error occur "+e.getMessage());
+			return BaseResponse(GlobalConstant.FAIL, null,GlobalConstant.Message.ERROR_MES);
+		}
+		return BaseResponse1(GlobalConstant.SUCCESS, student ,GlobalConstant.Message.SUCCESS_MES);
+		}
+	private BaseResponse BaseResponse1(int success,Student student, String successMes) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
+	

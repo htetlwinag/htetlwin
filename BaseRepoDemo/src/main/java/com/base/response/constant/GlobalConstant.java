@@ -9,6 +9,7 @@ public class GlobalConstant {
 		
 		String SUCCESS_MES = "Successful !";
 		String ERROR_MES = "Error !";
+		
 	
 	}
 	

@@ -20,4 +20,8 @@ public class StudentService {
 	public Student addStudent(Student student) {
 		return studentRepo.save(student);
 	}
+	public Student save(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}	
 }
